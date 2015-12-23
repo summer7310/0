@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>sass和compass学习笔记2（compass） | 夏想年的filmy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在学习compass之前先看一下compass对compass是如何定义的。
+
+compass是一个开源的CSS自动化处理框架，而之前讲的sass是一种css预处理器，类似于less,stylus等。compass包含了各种用于样式的模块，它与sass关系类似于jquery与js一样，使用compass中封装的模块能够更加方便快速的编写css样式文件。
+关于compass的安装之前已经介绍过了，c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sass和compass学习笔记2（compass）">
+<meta property="og:url" content="http://yoursite.com/2015/12/23/sass和compass学习笔记2（compass）/index.html">
+<meta property="og:site_name" content="夏想年的filmy">
+<meta property="og:description" content="在学习compass之前先看一下compass对compass是如何定义的。
+
+compass是一个开源的CSS自动化处理框架，而之前讲的sass是一种css预处理器，类似于less,stylus等。compass包含了各种用于样式的模块，它与sass关系类似于jquery与js一样，使用compass中封装的模块能够更加方便快速的编写css样式文件。
+关于compass的安装之前已经介绍过了，c">
+<meta property="og:image" content="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151221220937.jpg">
+<meta property="og:image" content="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151222092017.jpg">
+<meta property="og:image" content="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151222094618.jpg">
+<meta property="og:image" content="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151223083406.jpg">
+<meta property="og:image" content="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151223084410.jpg">
+<meta property="og:updated_time" content="2015-12-23T11:54:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sass和compass学习笔记2（compass）">
+<meta name="twitter:description" content="在学习compass之前先看一下compass对compass是如何定义的。
+
+compass是一个开源的CSS自动化处理框架，而之前讲的sass是一种css预处理器，类似于less,stylus等。compass包含了各种用于样式的模块，它与sass关系类似于jquery与js一样，使用compass中封装的模块能够更加方便快速的编写css样式文件。
+关于compass的安装之前已经介绍过了，c">
+  
+    <link rel="alternative" href="/atom.xml" title="夏想年的filmy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://tp4.sinaimg.cn/1775854223/180/5691923261/1" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">summer7310</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">夏想年 | 前端笔试</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/summer7310" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/1775854223/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+								<a class="douban" target="_blank" href="/#" title="douban">douban</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/heox/" style="font-size: 10px;">heox</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">summer7310</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://tp4.sinaimg.cn/1775854223/180/5691923261/1" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">summer7310</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">夏想年 | 前端笔试</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/summer7310" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/1775854223/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+						<a class="douban" target="_blank" href="/#" title="douban">douban</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-sass和compass学习笔记2（compass）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/23/sass和compass学习笔记2（compass）/" class="article-date">
+  	<time datetime="2015-12-23T11:54:13.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      sass和compass学习笔记2（compass）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在学习<a href="http://compass-style.org/" target="_blank" rel="external">compass</a>之前先看一下compass对compass是如何定义的。</p>
+<p><img src="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151221220937.jpg" alt="这里写图片描述"></p>
+<p>compass是一个开源的CSS自动化处理框架，而之前讲的sass是一种css预处理器，类似于less,stylus等。compass包含了各种用于样式的模块，它与sass关系类似于jquery与js一样，使用compass中封装的模块能够更加方便快速的编写css样式文件。</p>
+<p>关于compass的安装之前已经介绍过了，compass目前包含7个模块</p>
+<ul>
+<li>Reset：浏览器样式重置</li>
+<li>CSS3：提供支持css3的命令支持</li>
+<li>Layout：提供页面布局模块</li>
+<li>Helpers：提供一系列帮助函数</li>
+<li>Typography：提供版式功能</li>
+<li>Utilitie：提供不属于其他模块的功能</li>
+<li>Browser Support：提供浏览器支持的模块<br>在使用这些模块的时候，都需要提前引入，引入的格式可以是<code>@import &quot;compass&quot;</code> 全部引入，也可以是<code>@import &quot;compass/reset&quot;</code> 格式引入具体的模块。下面对这几个模块分别具体介绍一下：</li>
+</ul>
+<p>##1 Reset模块<br>Reset 重置浏览器的默认样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">import</span> <span class="string">"compass/reset"</span></span>;</span><br></pre></td></tr></table></figure>
+<p>也可以从网上下载其他的样式重置模块，介绍一下normalize.css模块，git下载地址<a href="necolas.github.io/normalize.css">necolas.github.io/normalize.css</a>或者也可以直接在控制台中安装</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$gem</span> install compass-normalize</span><br></pre></td></tr></table></figure>
+<p>在<strong>config.rb</strong>配置文件中头部添加</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span> <span class="string">'compass-normalize'</span></span><br></pre></td></tr></table></figure>
+<p>使用时在screen.css引入该模块</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">import</span> <span class="string">"normalize"</span></span>;</span><br></pre></td></tr></table></figure>
+<p><strong>normalize</strong>的核心样式模块主要有base,html5,links,typography,embeds,groups,forms,tables等，在使用时也可以引入单个模块</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">import</span> <span class="string">"normalize/base"</span></span>;</span><br></pre></td></tr></table></figure>
+<p>Reset模块还包含很多Mixin,，例如reset-table的mixin如下</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@mixin</span> reset-table &#123;</span><br><span class="line">  <span class="attribute">border-collapse</span>: collapse;</span><br><span class="line">  <span class="attribute">border-spacing</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体其他模块可以查看官网文档</p>
+<p>##2 layout模块</p>
+<p>指定页面整体布局，一般使用率不高</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//生成垂直和水平的栅格布局</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"compass/layout/grid-background"</span>;</span><br><span class="line"><span class="comment">//相对父类的绝对定位</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"compass/layout/stretching"</span>;</span><br><span class="line"><span class="comment">//指定页面的footer一直也底部</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"compass/layout/sticky-footer"</span>;</span><br></pre></td></tr></table></figure>
+<p>###2.1 stretch-full模块</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.stretch-full</span>&#123;</span><br><span class="line">	<span class="variable">@include</span> <span class="function">stretch</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译生成css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.stretch-full</span><span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">bottom</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">right</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>同时还能修改stretch内参数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.stretch-full&#123;</span><br><span class="line">	@<span class="function">include <span class="title">stretch</span><span class="params">(<span class="number">5</span>px, <span class="number">5</span>px, <span class="number">5</span>px, <span class="number">5</span>px)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译产生css文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.stretch-full</span><span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">5px</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">bottom</span>:<span class="value"> <span class="number">5px</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">5px</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">right</span>:<span class="value"> <span class="number">5px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>###2.2 sticky footer<br>该模块需要特定的html文档结构</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html文档</span></span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;<span class="tag">div</span> id=<span class="string">"root"</span>&gt;</span><br><span class="line">		&lt;p&gt;</span><br><span class="line">			This is the main <span class="attribute">content</span> area</span><br><span class="line">		&lt;/p&gt;</span><br><span class="line">		&lt;<span class="tag">div</span> id=<span class="string">"root_footer"</span>&gt;&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;<span class="tag">div</span> id=<span class="string">"footer"</span>&gt;</span><br><span class="line">		<span class="tag">footer</span> <span class="attribute">content</span> goes here</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//scss</span></span><br><span class="line">@<span class="preprocessor"><span class="keyword">include</span> sticky-footer(40px);</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//css</span></span><br><span class="line"><span class="id">#root</span> &#123;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: auto !important;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: -<span class="number">40px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="id">#root</span> <span class="id">#root_footer</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="id">#footer</span> &#123;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151222092017.jpg" alt="这里写图片描述"></p>
+<p>同时也可以自定义根和底部的名字</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="property">@include</span> stick-footer(<span class="number">30px</span>, <span class="string">"<span class="subst">#my-root</span>"</span>, <span class="string">"<span class="subst">#my-root-footer</span>"</span>, <span class="string">"<span class="subst">#my-footer</span>"</span>);</span><br></pre></td></tr></table></figure>
+<p>###2.3 grid background<br>在上面例子的基础上添加栅格背景</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#root</span>&#123;</span><br><span class="line">	<span class="variable">@include</span> <span class="function">grid-background</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>##3 CSS3模块&amp;Browser Support 模块</p>
+<p>提供一些css3跨浏览器的支持，css3的一些新特定border-radius,text-shadow等，在使用css3时很多时候都要调整bowser_support模块的支持</p>
+<p>###3.1 box-shadow<br>一般如果自己写一个盒子边缘阴影效果</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:<span class="number">1</span>px <span class="number">1</span>px <span class="number">3</span>px <span class="number">2</span>px <span class="preprocessor">#eee;</span></span><br><span class="line">-webkit-box-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">3</span>px <span class="number">2</span>px <span class="preprocessor">#eee;</span></span><br><span class="line">-moz-box-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">3</span>px <span class="number">2</span>px <span class="preprocessor">#eee;</span></span><br></pre></td></tr></table></figure>
+<p>为了兼容各个浏览器的版本，需要写CSS3非常令人头疼，可以用css3模块来解决</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入CSS3模块</span></span><br><span class="line">@import <span class="string">"compass/css3"</span>;</span><br><span class="line">div&#123;</span><br><span class="line">	@include box-shadow(<span class="number">1</span>px <span class="number">1</span>px <span class="number">3</span>px <span class="number">2</span>px <span class="preprocessor">#eee);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>css文件</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">  -moz-box-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">3</span>px <span class="number">2</span>px <span class="preprocessor">#eee;</span></span><br><span class="line">  -webkit-box-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">3</span>px <span class="number">2</span>px <span class="preprocessor">#eee;</span></span><br><span class="line">  box-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">3</span>px <span class="number">2</span>px <span class="preprocessor">#eee;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>如果不需要-moz模块，这时可以调用browser模块，改变需要的模块</strong></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">import</span> <span class="string">"compass/support"</span>;</span></span><br><span class="line"><span class="function">browsers</span>()</span><br><span class="line"><span class="comment">//compass内置了browsers()函数，用来返回一个浏览器list</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//利用sass的debug指令，打一条debug日志</span></span><br><span class="line"><span class="variable">@debug</span> <span class="function">browsers</span>();</span><br></pre></td></tr></table></figure>
+<p>支持的浏览器如下：</p>
+<p><img src="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151222094618.jpg" alt="这ddd里写图片描述"></p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//设置只支持chrome</span><br><span class="line"><span class="variable">$supported-browsers</span>:chrome;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//只生成webkit</span></span><br><span class="line">  -webkit-box-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">3</span>px <span class="number">2</span>px <span class="preprocessor">#eee;</span></span><br><span class="line">  box-shadow: <span class="number">1</span>px <span class="number">1</span>px <span class="number">3</span>px <span class="number">2</span>px <span class="preprocessor">#eee;</span></span><br></pre></td></tr></table></figure>
+<p>同时还可以指定支持浏览器的最小版本号</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$browser-minimum-versions</span>:(<span class="string">"ie"</span>: <span class="string">"8"</span>);</span><br></pre></td></tr></table></figure>
+<p>###3.2 opacity透明度设置：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.test-opacity</span>&#123;</span><br><span class="line">	<span class="variable">@include</span> <span class="function">opacity</span>(<span class="number">0.3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.test-opacity</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">filter</span>:<span class="value"> progid:DXImageTransform.Microsoft.<span class="function">Alpha</span>(Opacity=<span class="number">30</span>)</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">opacity</span>:<span class="value"> <span class="number">0.3</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>###3.3 border-radius</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//指定圆角半径参数为5px，@include为调用相应的mixin</span></span><br><span class="line"><span class="class">.rounded</span>&#123;</span><br><span class="line">	<span class="variable">@include</span> <span class="function">border-radius</span>(<span class="number">5px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译后css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.rounded</span> <span class="rules">&#123;</span><br><span class="line">　　　　<span class="rule"><span class="attribute">-moz-border-radius</span>:<span class="value"> <span class="number">5px</span></span></span>;</span><br><span class="line">　　　　<span class="rule"><span class="attribute">-webkit-border-radius</span>:<span class="value"> <span class="number">5px</span></span></span>;</span><br><span class="line">　　　　<span class="rule"><span class="attribute">-o-border-radius</span>:<span class="value"> <span class="number">5px</span></span></span>;</span><br><span class="line">　　　　<span class="rule"><span class="attribute">-ms-border-radius</span>:<span class="value"> <span class="number">5px</span></span></span>;</span><br><span class="line">　　　　<span class="rule"><span class="attribute">-khtml-border-radius</span>:<span class="value"> <span class="number">5px</span></span></span>;</span><br><span class="line">　　　　<span class="rule"><span class="attribute">border-radius</span>:<span class="value"> <span class="number">5px</span></span></span>;</span><br><span class="line">　　&#125;</span></span><br></pre></td></tr></table></figure>
+<p>##4 Typography模块</p>
+<p>主要用来修饰一下文本样式，链接样式等</p>
+<p>###4.1 links<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//链接样式</span></span><br><span class="line"><span class="at_rule">@import</span> <span class="string">"compass/typography/links"</span>;</span><br><span class="line"><span class="tag">a</span>&#123;</span><br><span class="line">	<span class="variable">@include</span> <span class="function">hover-link</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>css文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">a</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">text-decoration</span>:<span class="value"> none</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="tag">a</span><span class="pseudo">:hover</span>, <span class="tag">a</span><span class="pseudo">:focus</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">text-decoration</span>:<span class="value"> underline</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>###4.2 link-color<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改不同状态下的超链接颜色</span></span><br><span class="line"><span class="tag">a</span>&#123;</span><br><span class="line">	<span class="variable">@include</span> <span class="function">link-colors</span>(<span class="hexcolor">#00c</span>, <span class="hexcolor">#0cc</span>, <span class="hexcolor">#c0c</span>, <span class="hexcolor">#ccc</span>, <span class="hexcolor">#cc0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//依次参数列表</span></span><br><span class="line"><span class="tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="hexcolor">#00c</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">a</span><span class="pseudo">:visited</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="hexcolor">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">a</span><span class="pseudo">:focus</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="hexcolor">#cc0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">a</span><span class="pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="hexcolor">#0cc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">a</span><span class="pseudo">:active</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="hexcolor">#c0c</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###4.3 修改列表布局Lists</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@import</span> <span class="string">"compass/typography/lists"</span>;</span><br><span class="line"><span class="class">.list-unstyled</span>&#123;</span><br><span class="line">	<span class="variable">@include</span> <span class="function">no-bullets</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>css文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.list-unstyled</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">list-style</span>:<span class="value"> none</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.list-unstyled</span> <span class="tag">li</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">list-style-image</span>:<span class="value"> none</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">list-style-type</span>:<span class="value"> none</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>###4.4 实现<strong>li</strong> 的横向布局</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.<span class="built_in">list</span>-<span class="keyword">inline</span>&#123;</span><br><span class="line">	@include <span class="keyword">inline</span>-<span class="built_in">list</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.list-inline</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">list-style-type</span>:<span class="value"> none</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.list-inline</span>, <span class="class">.list-inline</span> <span class="tag">li</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">display</span>:<span class="value"> inline</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>###4.5 Text</p>
+<p> <strong>1. force-wrap</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@import</span> <span class="string">"compass/typography/text"</span>;</span><br><span class="line"><span class="class">.text-force-wrap</span>&#123;</span><br><span class="line">	<span class="variable">@include</span> <span class="function">force-wrap</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">----------</span></span><br><span class="line"><span class="class">.text-force-wrap</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>: pre;</span><br><span class="line">  <span class="attribute">white-space</span>: pre-wrap;</span><br><span class="line">  <span class="attribute">white-space</span>: pre-line;</span><br><span class="line">  <span class="attribute">white-space</span>: -pre-wrap;</span><br><span class="line">  <span class="attribute">white-space</span>: -o-pre-wrap;</span><br><span class="line">  <span class="attribute">white-space</span>: -moz-pre-wrap;</span><br><span class="line">  <span class="attribute">white-space</span>: -hp-pre-wrap;</span><br><span class="line">  <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> <strong>2. nowrap</strong><br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">.text-nowrap&#123;</span></span><br><span class="line"><span class="code">	@include nowrap();</span></span><br><span class="line"><span class="header">&#125;</span><br><span class="line">----------</span></span><br><span class="line"><span class="title">.text-nowrap &#123;</span></span><br><span class="line"><span class="code">  white-space: nowrap;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> <strong>3. Ellipsis</strong><br>类似于QQ群查找时，文字超过容器的宽度，后面用省略号，hover的时候显示具体信息框</p>
+<p><img src="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151223083406.jpg" alt="这里写图片描述"></p>
+<p>实现使用Text下的ellipsis<br>安装ellipsis插件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ compass <span class="operator"><span class="keyword">install</span> compass/<span class="keyword">ellipsis</span></span></span><br></pre></td></tr></table></figure>
+<p>查看工程目录，在stylesheets下多一个xml文件夹和ellipsis.css文件</p>
+<p><img src="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151223084410.jpg" alt="这里写图片描述"></p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$use-mozilla-ellipsis-binding</span>: <span class="literal">true</span>;</span><br><span class="line">.text-ellipsis&#123;</span><br><span class="line">	@include ellipsis();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自动兼容低版本的firefox</span></span><br><span class="line"><span class="class">.text-ellipsis</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">-ms-text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">-o-text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">-moz-binding</span>: <span class="function">url</span>(<span class="string">'/stylesheets/xml/ellipsis.xml#ellipsis'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5_Utilities"><a href="#5_Utilities" class="headerlink" title="5 Utilities"></a>5 Utilities</h2><p>###5.1 css sprites<br>css sprites图的设置<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">import</span> <span class="string">"compass/utilities/sprites"</span>;</span></span><br><span class="line"><span class="at_rule">@<span class="keyword">import</span> <span class="string">"image/icon/*.png"</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="class">.myicon</span>&#123;</span><br><span class="line">	<span class="attribute">width</span><span class="value">: <span class="number">20px</span>;</span></span><br><span class="line">	<span class="attribute">height</span><span class="value">: <span class="number">20px</span>;</span></span><br><span class="line">	<span class="at_rule">@<span class="keyword">include</span><span class="preprocessor"> all-icon-sprites</span>;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>###5.2 clearfix<br>清除浮动，是经常要做到事</p>
+<p> <strong>1. 方法一</strong></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@import</span> <span class="string">"compass/utilities/general"</span>;</span><br><span class="line"><span class="class">.clearfix</span>&#123;</span><br><span class="line">	<span class="variable">@include</span> <span class="function">clearfix</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//*zoom兼容ie6</span></span><br><span class="line"><span class="class">.clearfix</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  *<span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>2. 方法二</strong></p>
+<p>引入伪类清除浮动</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.clearfix</span>&#123;</span><br><span class="line">	<span class="variable">@include</span> <span class="function">pie-clearfix</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.clearfix</span> &#123;</span><br><span class="line">  *<span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//display: table不兼容ie6</span></span><br><span class="line"><span class="class">.clearfix</span><span class="pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">  <span class="attribute">display</span>: table;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>3. 方法三</strong><br> 由于上述<code>display: table</code> 不能很好的兼容ie6,下面引入一种支持ie6的伪类清除浮动</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.clearfix</span>&#123;</span><br><span class="line">	<span class="variable">@include</span> <span class="function">legacy-pie-clearfix</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.clearfix</span> &#123;</span><br><span class="line">  *<span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.clearfix</span><span class="pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">"\0020"</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">visibility</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###5.3 float<br>兼容消除ie6中margin产生的浮动双倍边距</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@import</span> <span class="string">"compass/utilities/general/float"</span></span><br></pre></td></tr></table></figure>
+<p>平时我们通常采用</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.pull-left</span><span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">display</span>:<span class="value"> inline</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>引入float mixin</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.pull-left</span>&#123;</span><br><span class="line">	<span class="variable">@include</span> <span class="function">float</span>(left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//产生的css代码中没有display: inline;</span></span><br><span class="line"><span class="class">.pull-left</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面编译产生的css代码中没有display: inline，这里需要设置一下浏览器的最低版本</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$browser-minimum-version</span>:(<span class="string">"ie"</span>, <span class="string">"6"</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>完</strong>  </p>
+<p>[TOC]</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/12/18/sass和compass学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sass和compass学习笔记1(sass)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="sass和compass学习笔记2（compass）" data-title="sass和compass学习笔记2（compass）" data-url="http://yoursite.com/2015/12/23/sass和compass学习笔记2（compass）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-sass和compass学习笔记2（compass）" data-title="sass和compass学习笔记2（compass）" data-url="http://yoursite.com/2015/12/23/sass和compass学习笔记2（compass）/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'xiafilm'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 summer7310
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
