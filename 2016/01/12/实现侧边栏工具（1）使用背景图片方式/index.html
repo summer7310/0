@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>实现侧边栏工具（1）使用背景图片方式 | 夏想年的filmy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="需要开发类似于CSDN文章浏览右侧显示的工具条，如下所示
+需要实现的效果如下：
+###1 HTML格式主要原理利用a标签和图片的sprite来实现创建一个toolbat类的工具条div点击a标签不产生任何效果123&amp;lt;div class=&quot;toolbar&quot;&amp;gt;	a[href=&quot;javascript:;&quot;].toolbar-item.toolbat-item-app*4&amp;lt;/div&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现侧边栏工具（1）使用背景图片方式">
+<meta property="og:url" content="http://www.xhdfilm.com/2016/01/12/实现侧边栏工具（1）使用背景图片方式/index.html">
+<meta property="og:site_name" content="夏想年的filmy">
+<meta property="og:description" content="需要开发类似于CSDN文章浏览右侧显示的工具条，如下所示
+需要实现的效果如下：
+###1 HTML格式主要原理利用a标签和图片的sprite来实现创建一个toolbat类的工具条div点击a标签不产生任何效果123&amp;lt;div class=&quot;toolbar&quot;&amp;gt;	a[href=&quot;javascript:;&quot;].toolbar-item.toolbat-item-app*4&amp;lt;/div&amp;gt">
+<meta property="og:image" content="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151223203348.jpg">
+<meta property="og:image" content="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151223223547.jpg">
+<meta property="og:image" content="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151223222011.jpg">
+<meta property="og:updated_time" content="2016-01-12T13:01:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实现侧边栏工具（1）使用背景图片方式">
+<meta name="twitter:description" content="需要开发类似于CSDN文章浏览右侧显示的工具条，如下所示
+需要实现的效果如下：
+###1 HTML格式主要原理利用a标签和图片的sprite来实现创建一个toolbat类的工具条div点击a标签不产生任何效果123&amp;lt;div class=&quot;toolbar&quot;&amp;gt;	a[href=&quot;javascript:;&quot;].toolbar-item.toolbat-item-app*4&amp;lt;/div&amp;gt">
+  
+    <link rel="alternative" href="/atom.xml" title="夏想年的filmy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://tp4.sinaimg.cn/1775854223/180/5691923261/1" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">summer7310</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">夏想年 | 前端笔试</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/summer7310" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/1775854223/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+								<a class="douban" target="_blank" href="/#" title="douban">douban</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/heox/" style="font-size: 10px;">heox</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">summer7310</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://tp4.sinaimg.cn/1775854223/180/5691923261/1" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">summer7310</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">夏想年 | 前端笔试</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/summer7310" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/1775854223/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+						<a class="douban" target="_blank" href="/#" title="douban">douban</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-实现侧边栏工具（1）使用背景图片方式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/12/实现侧边栏工具（1）使用背景图片方式/" class="article-date">
+  	<time datetime="2016-01-12T12:59:51.000Z" itemprop="datePublished">2016-01-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      实现侧边栏工具（1）使用背景图片方式
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>需要开发类似于CSDN文章浏览右侧显示的工具条，如下所示<br><img src="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151223203348.jpg" alt="这里写图片描述"></p>
+<p>需要实现的效果如下：<br><img src="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151223223547.jpg" alt="这里写图片描述"></p>
+<p>###1 HTML格式<br>主要原理利用a标签和图片的sprite来实现<br>创建一个toolbat类的工具条div<br>点击a标签不产生任何效果<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">div</span> class=<span class="string">"toolbar"</span>&gt;</span><br><span class="line">	<span class="tag">a</span>[href=<span class="string">"javascript:;"</span>]<span class="class">.toolbar-item</span><span class="class">.toolbat-item-app</span>*<span class="number">4</span></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>完整代码，公共类<strong>toolbar-item</strong>用来设置相同的宽高，第一个app在鼠标hover时弹出二维码下载，在a标签中包含一个<strong>span</strong>标签，用来放置二维码<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"toolbar"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"javascript:;"</span> <span class="attribute">class</span>=<span class="value">"toolbar-item toolbar-item-app"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"toolbar-layer"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span>	</span><br><span class="line">	<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"javascript:;"</span> <span class="attribute">class</span>=<span class="value">"toolbar-item toolbar-item-feedback"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"javascript:;"</span> <span class="attribute">class</span>=<span class="value">"toolbar-item toolbar-item-other"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"toolbar-layer"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"javascript:;"</span> <span class="attribute">class</span>=<span class="value">"toolbar-item toolbar-item-top"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>###2 CSS样式<br>这里使用sass样式预编译工具来编写css样式，sass的具体使用另一篇文章中已经说过，参考<a href="http://blog.csdn.net/summer7310/article/details/50369892" target="_blank" rel="external"> Sass和Compass学习笔记（1）</a><br>以下介绍将都在<strong>scss</strong>文件中编写<br>公共变量设置，工具条尺寸</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/* 参数变量设置 */</span><br><span class="line"><span class="variable">$toolbar-width</span>: <span class="number">90</span>px;</span><br><span class="line"><span class="variable">$toolbar-height</span>: <span class="number">28</span>px;</span><br></pre></td></tr></table></figure>
+<p>外部统一工具条<strong>toolbar</strong>类设置<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.toolbar</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: fixed;<span class="comment">//工具条固定定位</span></span><br><span class="line">    <span class="attribute">right</span>: <span class="number">10%</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>a标签公共样式<strong>toolbar-item</strong>设置</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 公共样式设置 */</span></span><br><span class="line"><span class="class">.toolbar-item</span>&#123;</span><br><span class="line">    <span class="attribute">position</span><span class="value">: relative;</span></span><br><span class="line">    <span class="attribute">display</span><span class="value">: block;</span></span><br><span class="line">    <span class="attribute">width</span><span class="value">: <span class="variable">$toolbar-width</span>;</span></span><br><span class="line">    <span class="attribute">height</span><span class="value">: <span class="variable">$toolbar-height</span>;</span></span><br><span class="line">    <span class="attribute">background-image</span><span class="value">: <span class="function">url</span>(../img/com-toolbar.png);</span></span><br><span class="line">    <span class="attribute">background-repeat</span><span class="value">: no-repeat;</span></span><br><span class="line">    <span class="attribute">margin-top</span><span class="value">: <span class="number">10px</span>;</span></span><br><span class="line">    <span class="attribute">z-index</span><span class="value">: <span class="number">1000</span>;</span></span><br><span class="line">    <span class="attribute">transition</span><span class="value">: background-position <span class="number">1s</span>;</span></span><br><span class="line">	<span class="comment">/*鼠标hover时a标签下面的toolbar-layer二维码显示，透明度为1，兼容ie6,缩放大小为1*/</span></span><br><span class="line">    &amp;<span class="pseudo">:hover</span>&#123;</span><br><span class="line">        <span class="class">.toolbar-layer</span>&#123;</span><br><span class="line">            <span class="attribute">opacity</span><span class="value">: <span class="number">1</span>;</span></span><br><span class="line">            <span class="attribute">filter</span><span class="value">: <span class="function">alpha</span>(opacity=<span class="number">100</span>);</span></span><br><span class="line">            <span class="attribute">transform</span><span class="value">: <span class="function">scale</span>(<span class="number">1</span>);</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内部标签定义样式</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.toolbar-item-app</span>&#123;</span><br><span class="line">    <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">&amp;</span><span class="pseudo">:hover</span>&#123;</span><br><span class="line">        <span class="attribute">background-position</span>: -<span class="number">100px</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="class">.toolbar-layer</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">112px</span>;</span><br><span class="line">        <span class="attribute">background-position</span>: <span class="number">0</span> -<span class="number">198px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class">.toolbar-item-feedback</span>&#123;</span><br><span class="line">    <span class="attribute">background-position</span>: <span class="number">0</span> -<span class="number">33px</span>;</span><br><span class="line">    <span class="keyword">&amp;</span><span class="pseudo">:hover</span>&#123;</span><br><span class="line">        <span class="attribute">background-position</span>: -<span class="number">100px</span> -<span class="number">33px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.toolbar-item-other</span>&#123;</span><br><span class="line">    <span class="attribute">background-position</span>: <span class="number">0</span> -<span class="number">66px</span>;</span><br><span class="line">    <span class="keyword">&amp;</span><span class="pseudo">:hover</span>&#123;</span><br><span class="line">        <span class="attribute">background-position</span>: -<span class="number">100px</span> -<span class="number">66px</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class">.toolbar-layer</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">112px</span>;</span><br><span class="line">        <span class="attribute">background-position</span>: <span class="number">0</span> -<span class="number">198px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.toolbar-item-top</span>&#123;</span><br><span class="line">    <span class="attribute">background-position</span>: <span class="number">0</span> -<span class="number">165px</span>;</span><br><span class="line">    <span class="keyword">&amp;</span><span class="pseudo">:hover</span>&#123;</span><br><span class="line">        <span class="attribute">background-position</span>: -<span class="number">100px</span> -<span class="number">165px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>二维码初始样式设置</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.toolbar-layer</span>&#123;</span><br><span class="line">    <span class="attribute">cursor</span><span class="value">: pointer;</span></span><br><span class="line">    <span class="attribute">position</span><span class="value">: absolute;</span><span class="comment">//相对于工具条绝对定位</span></span><br><span class="line">    <span class="attribute">right</span><span class="value">: <span class="variable">$toolbar-width</span>;</span></span><br><span class="line">    <span class="attribute">bottom</span><span class="value">:-<span class="number">1px</span>;</span></span><br><span class="line">    <span class="attribute">width</span><span class="value">: <span class="number">90px</span>;</span></span><br><span class="line">    <span class="attribute">background-image</span><span class="value">: <span class="function">url</span>(../img/com-toolbar.png);</span></span><br><span class="line">    <span class="attribute">background-repeat</span><span class="value">: no-repeat;</span></span><br><span class="line">    <span class="attribute">opacity</span><span class="value">: <span class="number">0</span>;</span><span class="comment">//开始透明度为0</span></span><br><span class="line">    <span class="attribute">filter</span><span class="value">: <span class="function">alpha</span>(opacity=<span class="number">0</span>);</span></span><br><span class="line">    <span class="attribute">transform</span><span class="value">: <span class="function">scale</span>(<span class="number">0.01</span>);</span><span class="comment">//初始大小为0.01，不可见</span></span><br><span class="line">    <span class="attribute">z-index</span><span class="value">: <span class="number">1000</span>;</span></span><br><span class="line">    <span class="attribute">transform-origin</span><span class="value">: right bottom;</span><span class="comment">//从底部和右侧开始缩放</span></span><br><span class="line">    <span class="attribute">transition</span><span class="value">: all <span class="number">1s</span>;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###3 性能优化</p>
+<ul>
+<li>可以将<strong>toolbar-item</strong>和<strong>toolbar-layer</strong>类相同的部分单独提出</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.toolbar-item</span>, <span class="class">.toolbar-layer</span><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="function">url</span>(../img/com-toolbar.png)</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-repeat</span>:<span class="value"> no-repeat</span></span>;	</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>内部单个工具条栏目中有类似相同的代码<br><img src="http://7xpaol.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20151223222011.jpg" alt="这里写图片描述"></li>
+</ul>
+<p>可以外部新建mixin统一模块</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@mixin toolbar-item(<span class="variable">$x</span>, <span class="variable">$y</span>, <span class="variable">$hoverx</span>, <span class="variable">$hovery</span>)&#123;</span><br><span class="line">    background-position: <span class="variable">$x</span> <span class="variable">$y</span>;</span><br><span class="line"></span><br><span class="line">    &amp;:hover&#123;</span><br><span class="line">        background-position: <span class="variable">$hoverx</span> <span class="variable">$hovery</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数调用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@include toolbar-item(<span class="number">0</span>, <span class="number">0</span>, -<span class="number">100</span>px, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>transition</strong>属于css3属性，需要考虑不同浏览器的兼容性，同样对<strong>transition</strong>进行封装。<br>新建mixin<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@mixin transition(<span class="variable">$transition</span>)&#123;</span><br><span class="line">    -webkit-transition: <span class="variable">$transition</span>;</span><br><span class="line">    -moz-transition: <span class="variable">$transition</span>;</span><br><span class="line">    -ms-transition: <span class="variable">$transition</span>;</span><br><span class="line">    -o-transition: <span class="variable">$transition</span>;</span><br><span class="line">    transition: <span class="variable">$transition</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>.toolbar-item</strong>中函数调用</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">include</span> <span class="function">transition</span>(background-position <span class="number">1s</span>)</span>;</span><br></pre></td></tr></table></figure>
+<p>同样其他的CSS3属性也需要如此考虑。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/12/实现侧边栏工具（2）使用图标字体方式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          实现侧边栏工具（2）使用图标字体方式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/23/sass和compass学习笔记2（compass）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sass和compass学习笔记2（compass）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="实现侧边栏工具（1）使用背景图片方式" data-title="实现侧边栏工具（1）使用背景图片方式" data-url="http://www.xhdfilm.com/2016/01/12/实现侧边栏工具（1）使用背景图片方式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-实现侧边栏工具（1）使用背景图片方式" data-title="实现侧边栏工具（1）使用背景图片方式" data-url="http://www.xhdfilm.com/2016/01/12/实现侧边栏工具（1）使用背景图片方式/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'xhdfilm'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 summer7310
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
