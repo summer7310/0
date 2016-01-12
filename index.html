@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/heox/" style="font-size: 10px;">heox</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a>
+						<a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/heox/" style="font-size: 10px;">heox</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a>
 					</div>
 				</section>
 				
@@ -199,6 +199,72 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-js清空数组的三种方法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/12/js清空数组的三种方法/" class="article-date">
+  	<time datetime="2016-01-12T13:47:20.000Z" itemprop="datePublished">2016-01-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/12/js清空数组的三种方法/">js清空数组的三种方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###方法1，splice方法###<br>splice() 方法用于插入、删除或替换数组的元素。<br>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">arr.splice(<span class="number">2</span>,<span class="number">1</span>,<span class="string">"Lemon"</span>,<span class="string">"Kiwi"</span>);</span><br><span class="line"><span class="comment">//第一个参数为删除和添加数组的起始位置，</span></span><br><span class="line"><span class="comment">//第二个参数为删除多少个元素，</span></span><br><span class="line"><span class="comment">//第三个参数为添加新的元素</span></span><br><span class="line">console.<span class="built_in">log</span>(arr)</span><br><span class="line"><span class="comment">//输出1,2,Lemon,Kiwi,4</span></span><br></pre></td></tr></table></figure>
+<p>所以清空数组相当于删除所有数组中的元素</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">arr.splice(<span class="number">0</span>, arr.length);</span><br><span class="line">console.<span class="built_in">log</span>(arr);</span><br><span class="line"><span class="comment">//输出[]，空数组</span></span><br></pre></td></tr></table></figure>
+<p>###方法二，赋值length为0 ###<br>javascript中数组的length和其他的语言的数组中length不同，js中数组length可以自己设置大小，意思是可读可写的，但其他语言如java,c++中都是不能进行修改，只读形式存在。<br>如java中对数组length赋值将报错</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line">arr.length = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>java中报错，但在js中则可以修改，这样就达到了清空数组的目的</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">arr.length = <span class="number">0</span>;</span><br><span class="line">console.<span class="built_in">log</span>(arr);</span><br><span class="line"><span class="comment">//输出[]，空数组</span></span><br></pre></td></tr></table></figure>
+<p>###方法三，数组赋值[ ]###</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]; </span><br><span class="line">arr = [];</span><br></pre></td></tr></table></figure>
+<p>这里其实并不能说是严格意义的清空数组，只是将ary重新赋值为空数组，之前的数组如果没有引用在指向它将等待垃圾回收。</p>
+<hr>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-实现侧边栏工具（2）使用图标字体方式" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1076,7 +1142,7 @@
 <h2 id="u5173_u4E8E_u6536_u8D39"><a href="#u5173_u4E8E_u6536_u8D39" class="headerlink" title="关于收费"></a>关于收费</h2><p><strong>马克飞象</strong>为新用户提供 10 天的试用期，试用期过后需要<a href="maxiang.info/vip.html">续费</a>才能继续使用。未购买或者未及时续费，将不能同步新的笔记。之前保存过的笔记依然可以编辑。</p>
 <h2 id="u53CD_u9988_u4E0E_u5EFA_u8BAE"><a href="#u53CD_u9988_u4E0E_u5EFA_u8BAE" class="headerlink" title="反馈与建议"></a>反馈与建议</h2><ul>
 <li>微博：<a href="http://weibo.com/u/2788354117" target="_blank" rel="external">@马克飞象</a>，<a href="http://weibo.com/ggock" title="开发者个人账号" target="_blank" rel="external">@GGock</a></li>
-<li>邮箱：<a href="&#x6d;&#x61;&#105;&#108;&#x74;&#x6f;&#x3a;&#x68;&#117;&#115;&#x74;&#x67;&#x6f;&#x63;&#x6b;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;">&#x68;&#117;&#115;&#x74;&#x67;&#x6f;&#x63;&#x6b;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;</a></li>
+<li>邮箱：<a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#58;&#x68;&#117;&#x73;&#116;&#x67;&#111;&#99;&#x6b;&#x40;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#x68;&#117;&#x73;&#116;&#x67;&#111;&#99;&#x6b;&#x40;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a></li>
 </ul>
 <hr>
 <p>感谢阅读这份帮助文档。请点击右上角，绑定印象笔记账号，开启全新的记录与分享体验吧。</p>

@@ -3,18 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>我的博客 | 夏想年的filmy</title>
+  <title>js清空数组的三种方法 | 夏想年的filmy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="生命在于折腾，折腾Hexo博客">
+  <meta name="description" content="###方法1，splice方法###splice() 方法用于插入、删除或替换数组的元素。例如：
+1234567var arr = [1, 2, 3, 4];arr.splice(2,1,&quot;Lemon&quot;,&quot;Kiwi&quot;);//第一个参数为删除和添加数组的起始位置，//第二个参数为删除多少个元素，//第三个参数为添加新的元素console.log(arr)//输出1,2,Lemon,Kiwi,4
+所以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://www.xhdfilm.com/2015/12/15/我的博客/index.html">
+<meta property="og:title" content="js清空数组的三种方法">
+<meta property="og:url" content="http://www.xhdfilm.com/2016/01/12/js清空数组的三种方法/index.html">
 <meta property="og:site_name" content="夏想年的filmy">
-<meta property="og:description" content="生命在于折腾，折腾Hexo博客">
-<meta property="og:updated_time" content="2015-12-15T14:16:55.000Z">
+<meta property="og:description" content="###方法1，splice方法###splice() 方法用于插入、删除或替换数组的元素。例如：
+1234567var arr = [1, 2, 3, 4];arr.splice(2,1,&quot;Lemon&quot;,&quot;Kiwi&quot;);//第一个参数为删除和添加数组的起始位置，//第二个参数为删除多少个元素，//第三个参数为添加新的元素console.log(arr)//输出1,2,Lemon,Kiwi,4
+所以">
+<meta property="og:updated_time" content="2016-01-12T13:47:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
-<meta name="twitter:description" content="生命在于折腾，折腾Hexo博客">
+<meta name="twitter:title" content="js清空数组的三种方法">
+<meta name="twitter:description" content="###方法1，splice方法###splice() 方法用于插入、删除或替换数组的元素。例如：
+1234567var arr = [1, 2, 3, 4];arr.splice(2,1,&quot;Lemon&quot;,&quot;Kiwi&quot;);//第一个参数为删除和添加数组的起始位置，//第二个参数为删除多少个元素，//第三个参数为添加新的元素console.log(arr)//输出1,2,Lemon,Kiwi,4
+所以">
   
     <link rel="alternative" href="/atom.xml" title="夏想年的filmy" type="application/atom+xml">
   
@@ -199,11 +205,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-我的博客" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-js清空数组的三种方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/15/我的博客/" class="article-date">
-  	<time datetime="2015-12-15T14:15:00.000Z" itemprop="datePublished">2015-12-15</time>
+      <a href="/2016/01/12/js清空数组的三种方法/" class="article-date">
+  	<time datetime="2016-01-12T13:47:20.000Z" itemprop="datePublished">2016-01-12</time>
 </a>
     </div>
   
@@ -216,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      我的博客
+      js清空数组的三种方法
     </h1>
   
 
@@ -225,14 +231,10 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/heox/">heox</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 	</div>
 
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Blog/">Blog</a>
-	</div>
-
 
         <div class="clearfix"></div>
       </div>
@@ -240,7 +242,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>###方法1，splice方法###<br>splice() 方法用于插入、删除或替换数组的元素。<br>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">arr.splice(<span class="number">2</span>,<span class="number">1</span>,<span class="string">"Lemon"</span>,<span class="string">"Kiwi"</span>);</span><br><span class="line"><span class="comment">//第一个参数为删除和添加数组的起始位置，</span></span><br><span class="line"><span class="comment">//第二个参数为删除多少个元素，</span></span><br><span class="line"><span class="comment">//第三个参数为添加新的元素</span></span><br><span class="line">console.<span class="built_in">log</span>(arr)</span><br><span class="line"><span class="comment">//输出1,2,Lemon,Kiwi,4</span></span><br></pre></td></tr></table></figure>
+<p>所以清空数组相当于删除所有数组中的元素</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">arr.splice(<span class="number">0</span>, arr.length);</span><br><span class="line">console.<span class="built_in">log</span>(arr);</span><br><span class="line"><span class="comment">//输出[]，空数组</span></span><br></pre></td></tr></table></figure>
+<p>###方法二，赋值length为0 ###<br>javascript中数组的length和其他的语言的数组中length不同，js中数组length可以自己设置大小，意思是可读可写的，但其他语言如java,c++中都是不能进行修改，只读形式存在。<br>如java中对数组length赋值将报错</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line">arr.length = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>java中报错，但在js中则可以修改，这样就达到了清空数组的目的</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">arr.length = <span class="number">0</span>;</span><br><span class="line">console.<span class="built_in">log</span>(arr);</span><br><span class="line"><span class="comment">//输出[]，空数组</span></span><br></pre></td></tr></table></figure>
+<p>###方法三，数组赋值[ ]###</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]; </span><br><span class="line">arr = [];</span><br></pre></td></tr></table></figure>
+<p>这里其实并不能说是严格意义的清空数组，只是将ary重新赋值为空数组，之前的数组如果没有引用在指向它将等待垃圾回收。</p>
+<hr>
+
       
     </div>
     
@@ -249,18 +263,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/17/markdown/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          how to use markdown
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/12/15/如何使用马克飞象/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">如何使用马克飞象</div>
+    <a href="/2016/01/12/实现侧边栏工具（2）使用图标字体方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">实现侧边栏工具（2）使用图标字体方式</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -289,7 +294,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="我的博客" data-title="我的博客" data-url="http://www.xhdfilm.com/2015/12/15/我的博客/"></div>
+	<div class="ds-thread" data-thread-key="js清空数组的三种方法" data-title="js清空数组的三种方法" data-url="http://www.xhdfilm.com/2016/01/12/js清空数组的三种方法/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -311,7 +316,7 @@
 
   <section id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-我的博客" data-title="我的博客" data-url="http://www.xhdfilm.com/2015/12/15/我的博客/"></div>
+    <div class="ds-thread" data-thread-key="post-js清空数组的三种方法" data-title="js清空数组的三种方法" data-url="http://www.xhdfilm.com/2016/01/12/js清空数组的三种方法/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
